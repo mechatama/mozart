@@ -1,6 +1,6 @@
 # Mozart - A Clientside Framework in CoffeeScript
 
-*Current Stable Version: 0.3.0, 21 October 2013*
+*Current Stable Version: 0.3.1, 23 October 2013*
 
 *Development Version: 0.4.0, November 2013*
 
@@ -20,7 +20,10 @@ Please see http://mozart.io for documentation, examples etc.
 
 # Changelog
 
-## 0.4.0
+## 0.3.1
+
+* IE8 innerHTML fix
+* Collection defaults now correct under all circumstances
 
 ## 0.3.0
 
