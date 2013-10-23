@@ -50,7 +50,7 @@ class View extends MztObject
   prepareElement: =>
     return if @released
     @newElement = @createElement()
-    $(@newElement).append(@templateFunction(@,{data:@})) if not @skipTemplate and @display
+    $(@newElement).html(@templateFunction(@,{data:@})) if not @skipTemplate and @display
 
   # Reassign all child view elements, and find this view's element in its parent's newElement
   # if it isn't a root view.
