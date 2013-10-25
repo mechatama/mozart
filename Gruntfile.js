@@ -58,7 +58,7 @@ module.exports = function (grunt) {
                 vendor: [
                     'src/lib/jquery-1.8.2.min.js',
                     'src/lib/underscore-min.js',
-                    'src/lib/handlebars-1.0.rc.1.js',
+                    'src/lib/handlebars-1.0.0.js',
                     'src/lib/sinon-1.6.0.js',
                     'test/templates.js'
                 ],

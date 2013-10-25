@@ -115,13 +115,13 @@ class Collection extends View
 
     obj.tag = 'li' if @viewClass == View
 
-    obj.templateName = @viewClassTemplateName
-    obj.templateFunction = @viewClassTemplateFunction
-    obj.tag = @collectionTag
-    obj.classNames = @collectionClassNames
-    obj.tooltips = @tooltips
+    obj.templateName = @viewClassTemplateName if @viewClassTemplateName?
+    obj.templateFunction = @viewClassTemplateFunction if @viewClassTemplateFunction?
+    obj.tag = @collectionTag if @collectionTag?
+    obj.classNames = @collectionClassNames if @collectionClassNames?
+    obj.tooltips = @tooltips if @tooltips?
     view = @layout.createView @viewClass,obj
-    @element.append(view.createElement())
+    @element?.append(view.createElement())
     @itemViews[instance[@idField]] = view
     @addView(view)
     @layout.queueRenderView(view)
@@ -163,7 +163,7 @@ class Collection extends View
       unless @hidden[item[@idField]]?
         unless count<start or page>=@pageSize
           @createView(item) unless @itemViews[item.id]?
-          @element.append(@itemViews[item[@idField]].element)
+          @element?.append(@itemViews[item[@idField]].element)
           page++
         @itemViews[item.id].set('order',{total: @displayOrder.length, position:rows})
         rows++

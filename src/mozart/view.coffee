@@ -50,16 +50,13 @@ class View extends MztObject
   prepareElement: =>
     return if @released
     @newElement = @createElement()
-    @newElement.innerHTML = @templateFunction(@,{data:@}) if not @skipTemplate and @display
+    $(@newElement).html(@templateFunction(@,{data:@})) if not @skipTemplate and @display
 
   # Reassign all child view elements, and find this view's element in its parent's newElement
   # if it isn't a root view.
   reassignElements: =>
-    for id, view of @childViews
-      view.reassignElements()
-
-    if @parent?
-      @el = @parent.findElementInPreparedContent(@id)  
+    view.reassignElements() for id, view of @childViews
+    @el = @parent.findElementInPreparedContent(@id) if @parent?
 
   # Find the element with the specified id in the prepared content (newElement)
   findElementInPreparedContent: (id) =>

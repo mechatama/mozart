@@ -13,10 +13,13 @@ describe 'Mozart.Collection', ->
   describe 'renders collections of arrays and simple models', ->
 
     beforeEach ->
-      SpecTest.simpleViewFunction = Handlebars.compile('{{#collection name="testCollection" collectionObserveBinding="SpecTest.controller.items"}}N:{{content.name}}{{/collection}}', {data:true})
+      simpleViewFunction = Handlebars.compile('
+        {{#collection name="testCollection" collectionObserveBinding="SpecTest.controller.items"}}
+          N:{{content.name}}
+        {{/collection}}', {data:true})
       
       class SpecTest.CollectionTestView extends Mozart.View
-        templateFunction: SpecTest.simpleViewFunction
+        templateFunction: simpleViewFunction
         layout: SpecTest.layout
 
       SpecTest.layout = Mozart.Layout.create
@@ -147,7 +150,7 @@ describe 'Mozart.Collection', ->
   describe 'renders collections of models and submodels', ->
 
     beforeEach ->
-      SpecTest.simpleViewFunction = Handlebars.compile('
+      simpleViewFunction = Handlebars.compile('
         {{#collection collectionObserveBinding="SpecTest.controller.items"}}
           N:{{content.name}}
           {{#collection collectionObserveBinding="content.subitems"}}
@@ -156,7 +159,7 @@ describe 'Mozart.Collection', ->
         {{/collection}}', {data:true})
       
       class SpecTest.CollectionTestView extends Mozart.View
-        templateFunction: SpecTest.simpleViewFunction
+        templateFunction: simpleViewFunction
         layout: SpecTest.layout
 
       SpecTest.layout = Mozart.Layout.create
